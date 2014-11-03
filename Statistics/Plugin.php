@@ -42,7 +42,7 @@ class Statistics_Plugin implements Typecho_Plugin_Interface
     public static function config(Typecho_Widget_Helper_Form $form)
     {
         /** 统计代码 */
-        $name = new Typecho_Widget_Helper_Form_Element_Text('code', NULL, '', _t('请添加异步统计代码'));
+        $name = new Typecho_Widget_Helper_Form_Element_Text('code', NULL, '', _t('统计代码'));
         $form->addInput($name);
     }
 
