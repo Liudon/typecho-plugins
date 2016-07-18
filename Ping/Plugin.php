@@ -11,10 +11,15 @@ class Ping_Plugin implements Typecho_Plugin_Interface {
 
     public static function activate()
     {
+        // Helper::addAction('contents-post-edit', 'Ping_Action');
         Typecho_Plugin::factory('Widget_Contents_Post_Edit')->finishPublish = array('Ping_Plugin', 'ping');
     }
 
-    public static function deactivate(){}
+    public static function deactivate()
+    {
+        // 修正1.0.0版本添加的action，这里卸载的时候删除
+        Helper::removeAction('contents-post-edit');
+    }
 
     public static function config(Typecho_Widget_Helper_Form $form)
     {
